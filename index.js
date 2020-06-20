@@ -26,3 +26,51 @@ function createWarriors(NumberOfWarriors){
 
 const result = createWarriors(10)
 
+
+
+function draw(array){
+    for (let index = 0; index < array.length; index++) {
+        drawCard(array[index])        
+    }
+}
+
+function drawCard(warriorDetails){
+    const {level, type, warriorImage, power, damage} = warriorDetails
+   
+    let card = document.createElement('div')
+    card.classname = 'card'
+    card.style= 'width: 18rem'
+    
+    let image = document.createElement("img")
+    image.src = warriorImage
+    image.classname = "card-img-top"
+    card.appendChild(image)
+
+    let cardBody = document.createElement('div')
+    cardBody.classname = 'card-body'
+    card.appendChild(cardBody)
+
+    let cardtitle = document.createElement('h5')
+    cardtitle.className = "card-title"
+    cardtitle.innerText = type
+    cardBody.appendChild(cardtitle)
+    
+    let warriorLevel = document.createElement("p")
+    warriorLevel.className = "card-text"
+    warriorLevel.innerText = "level:" + level
+    cardBody.appendChild(warriorLevel)
+   
+    let warriorPower = document.createElement("p")
+    warriorPower.className = "card-text"
+    warriorPower.innerText = "Power:" + power
+    cardBody.appendChild(warriorPower)
+
+    let warriorDamage = document.createElement("p")
+    warriorDamage.className = "card-text"
+    warriorDamage.innerText = "Damage:" + damage
+    cardBody.appendChild(warriorDamage)
+
+    
+}
+
+console.log(draw(result))
